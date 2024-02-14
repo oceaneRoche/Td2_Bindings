@@ -48,7 +48,7 @@ public class HelloController implements Initializable {
         Bindings.bindBidirectional(hauteur.textProperty(),monrectangle.hProperty(),sc);
         Bindings.bindBidirectional(largeur.textProperty(),monrectangle.lProperty(),sc);
         perimetre.textProperty().bind(monrectangle.pProperty().asString("%.2f m"));
-        surface.textProperty().bind(monrectangle.sProperty().asString("%.2f m"));
+        surface.textProperty().bind(monrectangle.sProperty().asString("%.2f m²"));
         Bindings.bindBidirectional(hauteur.textProperty(),sliderHauteur.valueProperty(),sc);
         sliderHauteur.visibleProperty().bind(Bindings.when(monrectangle.hProperty().greaterThan(100))
                 .then(false).otherwise(true));
