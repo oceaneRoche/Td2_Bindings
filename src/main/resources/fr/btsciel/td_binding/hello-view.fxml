@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.btsciel.td_binding.HelloController">
    <children>
@@ -17,5 +18,6 @@
       <Label layoutX="386.0" layoutY="122.0" text="perirmetre" />
       <Slider fx:id="sliderHauteur" layoutX="35.0" layoutY="48.0" orientation="VERTICAL" />
       <Slider fx:id="sliderLargeur" layoutX="35.0" layoutY="207.0" orientation="VERTICAL" />
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="110.0" layoutX="305.0" layoutY="264.0" stroke="BLACK" strokeType="INSIDE" width="218.0" />
    </children>
 </AnchorPane>
