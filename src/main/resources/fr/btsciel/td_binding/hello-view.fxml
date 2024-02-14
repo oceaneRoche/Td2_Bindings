@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.btsciel.td_binding.HelloController">
@@ -11,13 +12,17 @@
       <TextField fx:id="perimetre" editable="false" layoutX="339.0" layoutY="152.0" />
       <TextField fx:id="surface" editable="false" layoutX="339.0" layoutY="230.0" />
       <TextField fx:id="hauteur" layoutX="87.0" layoutY="105.0" />
-      <TextField fx:id="largeur" layoutX="87.0" layoutY="264.0" />
+      <TextField fx:id="largeur" layoutX="88.0" layoutY="283.0" />
       <Label layoutX="141.0" layoutY="81.0" text="hauteur" />
-      <Label layoutX="143.0" layoutY="234.0" text="largeur" />
+      <Label layoutX="144.0" layoutY="255.0" text="largeur" />
       <Label layoutX="395.0" layoutY="207.0" text="surface" />
       <Label layoutX="386.0" layoutY="122.0" text="perirmetre" />
       <Slider fx:id="sliderHauteur" layoutX="35.0" layoutY="48.0" orientation="VERTICAL" />
       <Slider fx:id="sliderLargeur" layoutX="35.0" layoutY="207.0" orientation="VERTICAL" />
-      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="110.0" layoutX="305.0" layoutY="264.0" stroke="BLACK" strokeType="INSIDE" width="218.0" />
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="101.0" layoutX="87.0" layoutY="138.0" stroke="BLACK" strokeType="INSIDE" width="172.0" />
+      <Circle fx:id="cercle" fill="DODGERBLUE" layoutX="431.0" layoutY="322.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" />
+      <Slider fx:id="sliderCercle" layoutX="518.0" layoutY="272.0" orientation="VERTICAL" prefHeight="101.0" prefWidth="14.0" />
+      <TextField fx:id="rayon" layoutX="226.0" layoutY="355.0" />
+      <Label layoutX="286.0" layoutY="323.0" text="rayon" />
    </children>
 </AnchorPane>
