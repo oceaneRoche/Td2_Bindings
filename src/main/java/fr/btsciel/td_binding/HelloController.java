@@ -3,9 +3,7 @@ package fr.btsciel.td_binding;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
@@ -14,7 +12,10 @@ import javafx.scene.paint.Color;
 import javafx.util.StringConverter;
 import javafx.util.converter.DoubleStringConverter;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -29,7 +30,21 @@ public class HelloController implements Initializable {
     DoubleProperty s = new SimpleDoubleProperty();
     DoubleProperty h = new SimpleDoubleProperty();
     DoubleProperty l = new SimpleDoubleProperty();
-    StringConverter sc = new DoubleStringConverter();
+    StringConverter sc = new DoubleStringConverter() {
+        @Override
+        public Double fromString(String value) {
+            value = value.replace(",", ".");
+            value = value.replace("m","").trim();
+            BigDecimal bd = new BigDecimal(value).setScale(2, RoundingMode.HALF_UP);
+            return bd.doubleValue();
+        }
+
+        @Override
+        public String toString(Double value) {
+            DecimalFormat df = new DecimalFormat("#.00 m");
+            return df.format(value);
+        }
+    };
     Double SEUIL_P = 1500.0, SEUIL_S = 5000.0;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,8 +52,8 @@ public class HelloController implements Initializable {
         s.bind(l.multiply(h));
         Bindings.bindBidirectional(hauteur.textProperty(),h,sc);
         Bindings.bindBidirectional(largeur.textProperty(),l,sc);
-        perimetre.textProperty().bind(p.asString());
-        surface.textProperty().bind(s.asString());
+        perimetre.textProperty().bind(p.asString("%.2f m"));
+        surface.textProperty().bind(s.asString("%.2f m"));
         Bindings.bindBidirectional(hauteur.textProperty(),sliderHauteur.valueProperty(),sc);
         sliderHauteur.visibleProperty().bind(Bindings.when(h.greaterThan(100))
                 .then(false).otherwise(true));
